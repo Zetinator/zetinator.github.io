@@ -458,7 +458,7 @@ a:hover, a:focus, a:active {
 .lity-close:active::after,
 .lity-close:visited::before,
 .lity-close:visited::after {
-  background-color: #00a650;
+  background-color: #0090B0;
 }
 
 /* Image */
