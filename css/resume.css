@@ -204,7 +204,7 @@ a:hover, a:focus, a:active {
   text-align: center;
   outline: none;
   position: absolute;
-  bottom: 10%;
+  /* bottom: 10%; */
   /* left: calc(70% + 200px - 45px); */
   left: 90%;
 }
