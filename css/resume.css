@@ -204,9 +204,10 @@ a:hover, a:focus, a:active {
   text-align: center;
   outline: none;
   position: absolute;
+  padding-left: 10px;
   /* bottom: 10%; */
   /* left: calc(70% + 200px - 45px); */
-  left: 90%;
+  /* left: 90%; */
 }
 
 .btn-video::after {
@@ -227,8 +228,8 @@ a:hover, a:focus, a:active {
 
 .video-icon {
   display: inline-block;
-  height: 90px;
-  width: 90px;
+  height: 4.3rem;
+  width: 4.3rem;
   border-radius: 50%;
   background-color: #DBDBDB;
   background-image: url(../img/icons/icon-play-black.svg);
