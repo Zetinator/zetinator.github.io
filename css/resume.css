@@ -226,6 +226,16 @@ a:hover, a:focus, a:active {
   transition: all 0.5s ease-in-out;
 }
 
+@keyframes shadow-pulse
+{
+  0% {
+    box-shadow: 0 0 0 0px rgba(0, 0, 0, 0.2);
+  }
+  100% {
+    box-shadow: 0 0 0 10px rgba(0, 0, 0, 0);
+  }
+}
+
 .video-icon {
   display: inline-block;
   height: 4.3rem;
@@ -238,6 +248,7 @@ a:hover, a:focus, a:active {
   background-size: 24px 27px;
   -webkit-transition: all 0.5s ease-in-out;
   transition: all 0.5s ease-in-out;
+  animation: shadow-pulse 1s infinite;
 }
 
 .btn-video:hover::after {
