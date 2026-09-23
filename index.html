@@ -1,1 +1,845 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"/><link rel="icon" href="/favicon.ico"/><script async src="https://www.googletagmanager.com/gtag/js?id=UA-134856242-1"></script><script>function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag("js",new Date),gtag("config","UA-134856242-1")</script><script>!function(e,t,a,n,g){e[n]=e[n]||[],e[n].push({"gtm.start":(new Date).getTime(),event:"gtm.js"});var m=t.getElementsByTagName(a)[0],r=t.createElement(a);r.async=!0,r.src="https://www.googletagmanager.com/gtm.js?id=GTM-KCBLFW3",m.parentNode.insertBefore(r,m)}(window,document,"script","dataLayer")</script><meta name="viewport" content="width=device-width,initial-scale=1"/><meta name="theme-color" content="#000000"/><meta name="description" content="Who is Erick the Zetinator?... lets find out 🧐"/><link rel="apple-touch-icon" href="/logo192.png"/><link rel="manifest" href="/manifest.json"/><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"/><link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"/><script src="https://kit.fontawesome.com/33b8bcd37e.js" crossorigin="anonymous"></script><title>Erick Zetinator</title><script defer="defer" src="/static/js/main.bfc2db3b.js"></script><link href="/static/css/main.99f55791.css" rel="stylesheet"></head><body><noscript>You need to enable JavaScript to run this app.</noscript><div id="root"></div></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Erick Zetina | Software Engineer & Mechatronics Engineer</title>
+  <meta name="description" content="Portfolio of Erick Zetina (Zetinator) – Software Engineer at Google, Mechatronics Engineer specializing in distributed data pipelines, machine learning, and autonomous systems.">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Reactive Canvas Background -->
+  <canvas id="bg-canvas"></canvas>
+
+  <div class="app-wrapper">
+    <!-- Header Navigation -->
+    <header class="site-header">
+      <div class="container header-container">
+        <a href="#about" class="brand-link">
+          <img
+            src="https://github.com/Zetinator.png?size=120"
+            onerror="this.onerror=null;this.src='profile.webp';"
+            alt="Erick Zetina"
+            class="brand-avatar"
+            width="36"
+            height="36"
+            decoding="async"
+          >
+          <span class="brand-title">
+            Erick <span class="brand-accent">Zetina</span>
+          </span>
+          <span class="brand-badge">SWE @ Google</span>
+        </a>
+
+        <nav class="main-nav" aria-label="Main Navigation">
+          <a href="#about" class="nav-link active">About</a>
+          <a href="#experience" class="nav-link">Experience</a>
+          <a href="#project" class="nav-link">Featured</a>
+          <a href="#skills" class="nav-link">Skills</a>
+          <a href="#education" class="nav-link">Education</a>
+          <a href="#languages" class="nav-link">Languages</a>
+          <a href="#interests" class="nav-link">Interests</a>
+        </nav>
+
+        <div class="header-actions">
+          <a href="mailto:erickzetinator@gmail.com" class="btn btn-primary btn-sm header-cta">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+            Contact
+          </a>
+          <button id="mobile-menu-toggle" class="mobile-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Mobile Drawer -->
+    <div id="drawer-overlay" class="drawer-overlay"></div>
+    <div id="mobile-drawer" class="mobile-drawer">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 12px;">
+        <span style="font-weight:700; font-family:var(--font-sans);">Navigation</span>
+        <button id="drawer-close-btn" class="copy-btn" onclick="document.getElementById('mobile-drawer').classList.remove('open');document.getElementById('drawer-overlay').classList.remove('open');">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+      </div>
+      <nav class="mobile-nav-links">
+        <a href="#about" class="mobile-nav-link">About</a>
+        <a href="#experience" class="mobile-nav-link">Experience</a>
+        <a href="#project" class="mobile-nav-link">Featured Project</a>
+        <a href="#skills" class="mobile-nav-link">Skills & Stack</a>
+        <a href="#education" class="mobile-nav-link">Education</a>
+        <a href="#languages" class="mobile-nav-link">Languages</a>
+        <a href="#interests" class="mobile-nav-link">Interests & Awards</a>
+      </nav>
+      <div style="margin-top:auto; display:flex; flex-direction:column; gap:10px;">
+        <a href="mailto:erickzetinator@gmail.com" class="btn btn-primary btn-sm">Email Erick</a>
+        <a href="https://drive.google.com/file/d/1YTu9EC7w_9p1FOtbUyepERHwyfnc7N9V/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm">Download Resume (PDF)</a>
+      </div>
+    </div>
+
+    <!-- Main Content -->
+    <main id="main-content">
+      <!-- Hero / About Section -->
+      <section id="about" class="hero-section">
+        <div class="container">
+          <div class="hero-grid">
+            <div class="hero-text-col">
+              <div class="hero-eyebrow">
+                <span class="status-dot"></span>
+                <span>Software Engineer & Mechatronics</span>
+              </div>
+              <h1 class="hero-name">Erick Zetina</h1>
+              <div class="hero-title">
+                <span>Building distributed systems at</span>
+                <span class="company-tag">
+                  <svg class="google-logo-icon" viewBox="0 0 24 24">
+                    <path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.8-2.4 3.66v3.05h3.9c2.28-2.1 3.6-5.2 3.6-9.15z"/>
+                    <path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.9-3.05c-1.08.72-2.45 1.16-4.03 1.16-3.1 0-5.74-2.1-6.68-4.93H1.21v3.15C3.25 21.41 7.33 24 12 24z"/>
+                    <path fill="#FBBC05" d="M5.32 14.27A7.16 7.16 0 0 1 4.93 12c0-.79.14-1.56.39-2.27V6.58H1.21A11.96 11.96 0 0 0 0 12c0 1.92.45 3.74 1.21 5.42l4.11-3.15z"/>
+                    <path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.33 0 3.25 2.59 1.21 6.58l4.11 3.15c.94-2.83 3.58-4.98 6.68-4.98z"/>
+                  </svg>
+                  Google
+                </span>
+              </div>
+              <p class="hero-bio">
+                Specialized in large-scale data processing pipelines for Geo Enterprise, optimizing response quality across global Google Maps APIs, and engineering high-throughput privacy pseudonymization services. Background in robotics, machine learning GANs for autonomous vehicles, and full-stack architecture.
+              </p>
+              
+              <div class="hero-actions">
+                <a href="mailto:erickzetinator@gmail.com" class="btn btn-primary">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                  Get in Touch
+                </a>
+                <a href="https://drive.google.com/file/d/1YTu9EC7w_9p1FOtbUyepERHwyfnc7N9V/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                  Resume PDF
+                </a>
+                <button class="btn btn-accent" data-open-video>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                  Autonomous Car Demo
+                </button>
+              </div>
+
+              <div class="hero-socials">
+                <a href="https://github.com/Zetinator" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="GitHub Profile" title="GitHub / Zetinator">
+                  <svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+                </a>
+                <a href="https://www.linkedin.com/in/erick-zetina-b922a2173/" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="LinkedIn Profile" title="LinkedIn">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                </a>
+                <a href="https://wa.me/16503073102" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="WhatsApp Chat" title="WhatsApp (+1 650 307 3102)">
+                  <svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 0C5.397 0 .004 5.393.004 12.028c0 2.115.552 4.18 1.6 6l-1.7 6.205 6.353-1.666c1.745.952 3.714 1.455 5.774 1.455 6.633 0 12.027-5.393 12.027-12.028C24.058 5.393 18.664 0 12.031 0zm0 22.012c-1.808 0-3.578-.485-5.12-1.403l-.367-.218-3.799.997 1.014-3.702-.239-.38c-1.01-1.608-1.543-3.475-1.543-5.278 0-5.518 4.49-10.008 10.054-10.008 2.684 0 5.207 1.046 7.106 2.946a10.005 10.005 0 0 1 2.946 7.106c0 5.519-4.49 10.009-10.051 10.009zm5.505-7.518c-.302-.151-1.785-.882-2.062-.983-.277-.101-.479-.151-.681.151-.202.302-.782.983-.958 1.185-.176.202-.353.227-.655.076s-1.274-.47-2.426-1.498c-.897-.799-1.502-1.786-1.678-2.088-.176-.302-.019-.465.132-.615.136-.135.302-.353.454-.529.151-.176.202-.302.302-.504.101-.202.05-.378-.025-.529s-.681-1.643-.933-2.248c-.245-.59-.494-.51-.681-.52l-.58-.01c-.202 0-.529.076-.806.378-.277.302-1.059 1.033-1.059 2.52s1.084 2.923 1.235 3.124c.151.202 2.133 3.256 5.168 4.568.722.312 1.285.499 1.724.639.725.23 1.385.197 1.906.12.58-.087 1.785-.73 2.037-1.435.252-.705.252-1.31.176-1.435-.075-.125-.277-.202-.579-.353z"/></svg>
+                </a>
+                <a href="https://unsplash.com/@zetinator" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="Unsplash Photography" title="Unsplash Photography">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M7.5 6.75V0h9v6.75h-9zm9 3.75H24V24H0V10.5h7.5v6.75h9V10.5z"/></svg>
+                </a>
+                <a href="https://www.facebook.com/zetinator" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="Facebook Profile" title="Facebook">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                </a>
+              </div>
+            </div>
+
+            <!-- Profile Card -->
+            <div class="hero-visual">
+              <div class="profile-card" data-tilt>
+                <div class="profile-image-wrapper">
+                  <img
+                    src="https://github.com/Zetinator.png?size=600"
+                    onerror="this.onerror=null;this.src='profile.webp';"
+                    alt="Erick Zetina"
+                    class="profile-photo"
+                    width="600"
+                    height="600"
+                    fetchpriority="high"
+                    decoding="async"
+                  >
+                  <div class="photo-badge">
+                    <span class="status-dot"></span>
+                    <span>Mountain View, CA</span>
+                  </div>
+                </div>
+                <div class="profile-details">
+                  <div class="contact-row">
+                    <a href="mailto:erickzetinator@gmail.com" class="contact-info">
+                      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                      <span>erickzetinator@gmail.com</span>
+                    </a>
+                    <button class="copy-btn" data-copy="erickzetinator@gmail.com" data-copy-label="Email" title="Copy email address" aria-label="Copy email address">
+                      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                    </button>
+                  </div>
+
+                  <div class="contact-row">
+                    <a href="tel:+16503073102" class="contact-info">
+                      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                      <span>+1 (650) 307-3102</span>
+                    </a>
+                    <button class="copy-btn" data-copy="+16503073102" data-copy-label="Phone number" title="Copy phone number" aria-label="Copy phone number">
+                      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Experience Section -->
+      <section id="experience" class="section">
+        <div class="container">
+          <div class="section-header">
+            <div class="section-subtitle">Career Track</div>
+            <h2 class="section-title">Engineering Experience</h2>
+            <p class="section-description">Designing reliable, scalable distributed systems, data processing pipelines, and applied machine learning architectures.</p>
+          </div>
+
+          <div class="timeline">
+            <!-- Google -->
+            <div class="timeline-item">
+              <div class="timeline-header">
+                <div class="timeline-role-group">
+                  <h3 class="timeline-role">Software Engineer</h3>
+                  <a href="https://www.google.com" target="_blank" rel="noopener noreferrer" class="timeline-company-link">
+                    Google
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                  </a>
+                </div>
+                <div class="timeline-meta">
+                  <span class="timeline-period">January 2021 — Present</span>
+                  <span class="timeline-location">Mountain View, California</span>
+                </div>
+              </div>
+              <ul class="timeline-bullets">
+                <li>Developed and implemented large-scale data processing pipelines for Geo Enterprise to analyze and optimize response quality across Google Maps APIs, substantially improving developer and end-user reliability.</li>
+                <li>Architected and delivered a high-throughput, horizontally scalable pseudonymization service for enterprise pipelines, enabling compliant storage and longitudinal seasonality analysis of sensitive geospatial data.</li>
+              </ul>
+              <div class="timeline-tags">
+                <span class="tech-tag">C++</span>
+                <span class="tech-tag">Python</span>
+                <span class="tech-tag">Google Cloud</span>
+                <span class="tech-tag">Distributed Pipelines</span>
+                <span class="tech-tag">Pseudonymization</span>
+                <span class="tech-tag">Geo Enterprise</span>
+              </div>
+            </div>
+
+            <!-- LISA Insurtech -->
+            <div class="timeline-item">
+              <div class="timeline-header">
+                <div class="timeline-role-group">
+                  <h3 class="timeline-role">Data Scientist</h3>
+                  <a href="https://www.lisainsurtech.com/en/home-page/" target="_blank" rel="noopener noreferrer" class="timeline-company-link">
+                    LISA Insurtech
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                  </a>
+                </div>
+                <div class="timeline-meta">
+                  <span class="timeline-period">February 2020 — January 2021</span>
+                  <span class="timeline-location">Remote / Mexico</span>
+                </div>
+              </div>
+              <ul class="timeline-bullets">
+                <li>Engineered high-performance REST APIs leveraging natural language processing (NLP) to parse and extract structured entities from thousands of complex legal insurance documents, accelerating claim resolution workflows.</li>
+                <li>Configured and deployed distributed Elasticsearch clusters to provide sub-second semantic retrieval across hundreds of thousands of institutional records.</li>
+              </ul>
+              <div class="timeline-tags">
+                <span class="tech-tag">Python</span>
+                <span class="tech-tag">NLP</span>
+                <span class="tech-tag">Elasticsearch</span>
+                <span class="tech-tag">FastAPI / REST</span>
+                <span class="tech-tag">Docker</span>
+              </div>
+            </div>
+
+            <!-- Audi AG -->
+            <div class="timeline-item">
+              <div class="timeline-header">
+                <div class="timeline-role-group">
+                  <h3 class="timeline-role">Software Development Intern</h3>
+                  <a href="https://www.audi.de/de/brand/de.html" target="_blank" rel="noopener noreferrer" class="timeline-company-link">
+                    Audi AG
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                  </a>
+                </div>
+                <div class="timeline-meta">
+                  <span class="timeline-period">Feb 2018 – Aug 2018 &amp; Jun 2019 – Dec 2019</span>
+                  <span class="timeline-location">Ingolstadt, Germany</span>
+                </div>
+              </div>
+              <ul class="timeline-bullets">
+                <li>Trained deep neural networks (Generative Adversarial Networks / GANs) with TensorFlow to synthesize photorealistic camera feeds from synthetic simulation data, enabling robust closed-loop training for autonomous driving models.</li>
+                <li>Enhanced core road network quality assurance suites by implementing automated validation algorithms, runtime performance optimizations, and critical bug resolutions in modern C++ and Python.</li>
+              </ul>
+              <div class="timeline-tags">
+                <span class="tech-tag">TensorFlow</span>
+                <span class="tech-tag">GANs</span>
+                <span class="tech-tag">C++</span>
+                <span class="tech-tag">Python</span>
+                <span class="tech-tag">Autonomous Vehicles</span>
+                <span class="tech-tag">Simulation</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Featured Project Showcase -->
+      <section id="project" class="section">
+        <div class="container">
+          <div class="section-header">
+            <div class="section-subtitle">Flagship Engineering</div>
+            <h2 class="section-title">Autonomous Vehicle in Action</h2>
+            <p class="section-description">A deep-dive project combining mechatronics engineering, real-time computer vision, robotics control, and generative neural networks.</p>
+          </div>
+
+          <div class="showcase-card" data-tilt>
+            <div class="showcase-media">
+              <img src="https://img.youtube.com/vi/LT-8tDMSFo0/maxresdefault.jpg" alt="Autonomous car testing video thumbnail" class="showcase-thumb">
+              <button class="play-overlay-btn" data-open-video aria-label="Watch autonomous car video">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+              </button>
+            </div>
+            <div class="showcase-content">
+              <div>
+                <span class="showcase-badge">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 14 14"></polyline></svg>
+                  Mechatronics &amp; Robotics
+                </span>
+                <h3 class="showcase-title">Autonomous Vehicle Platform</h3>
+                <p class="showcase-desc">
+                  An end-to-end autonomous driving vehicle built by bridging low-level mechatronics microcontrollers with high-level perception pipelines. Featuring real-time sensor fusion, lane tracking, collision avoidance algorithms, and neural network synthetic simulation validation.
+                </p>
+              </div>
+              <div class="showcase-footer">
+                <button class="btn btn-accent" data-open-video>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                  Watch Project Demo
+                </button>
+                <div class="timeline-tags">
+                  <span class="tech-tag">ROS</span>
+                  <span class="tech-tag">C++</span>
+                  <span class="tech-tag">Python</span>
+                  <span class="tech-tag">Computer Vision</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Skills & Tech Stack Section -->
+      <section id="skills" class="section">
+        <div class="container">
+          <div class="section-header">
+            <div class="section-subtitle">Toolkit &amp; Capabilities</div>
+            <h2 class="section-title">Skills &amp; Technology Stack</h2>
+            <p class="section-description">A multi-paradigm foundation spanning systems programming, cloud infrastructure, web architectures, and robotics frameworks.</p>
+          </div>
+
+          <!-- Filter Chips -->
+          <div class="skill-filters" role="tablist">
+            <button class="skill-filter-btn active" data-filter="all">All Technologies</button>
+            <button class="skill-filter-btn" data-filter="lang">Programming Languages</button>
+            <button class="skill-filter-btn" data-filter="cloud">Cloud &amp; DevOps</button>
+            <button class="skill-filter-btn" data-filter="frameworks">Frameworks &amp; APIs</button>
+            <button class="skill-filter-btn" data-filter="systems">Systems &amp; Robotics</button>
+          </div>
+
+          <!-- Skills Grid with Crisp Vector SVGs -->
+          <div class="skills-grid">
+            <!-- Languages -->
+            <a href="https://en.wikipedia.org/wiki/Python_(programming_language)" target="_blank" rel="noopener noreferrer" class="skill-card" data-category="lang">
+              <div class="skill-icon-wrapper">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg" alt="Python logo" class="skill-icon">
+              </div>
+              <div class="skill-info">
+                <span class="skill-name">Python</span>
+                <span class="skill-category-label">Primary Language</span>
+              </div>
+            </a>
+
+            <a href="https://en.wikipedia.org/wiki/C%2B%2B" target="_blank" rel="noopener noreferrer" class="skill-card" data-category="lang">
+              <div class="skill-icon-wrapper">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/1/18/ISO_C%2B%2B_Logo.svg" alt="C++ logo" class="skill-icon">
+              </div>
+              <div class="skill-info">
+                <span class="skill-name">C++</span>
+                <span class="skill-category-label">Systems &amp; Vision</span>
+              </div>
+            </a>
+
+            <a href="https://en.wikipedia.org/wiki/Rust_(programming_language)" target="_blank" rel="noopener noreferrer" class="skill-card" data-category="lang">
+              <div class="skill-icon-wrapper">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/d/d5/Rust_programming_language_black_logo.svg" alt="Rust logo" class="skill-icon" style="filter: invert(1);">
+              </div>
+              <div class="skill-info">
+                <span class="skill-name">Rust</span>
+                <span class="skill-category-label">Safe Concurrency</span>
+              </div>
+            </a>
+
+            <a href="https://en.wikipedia.org/wiki/JavaScript" target="_blank" rel="noopener noreferrer" class="skill-card" data-category="lang">
+              <div class="skill-icon-wrapper">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/9/99/Unofficial_JavaScript_logo_2.svg" alt="JavaScript logo" class="skill-icon">
+              </div>
+              <div class="skill-info">
+                <span class="skill-name">JavaScript</span>
+                <span class="skill-category-label">Web &amp; Node</span>
+              </div>
+            </a>
+
+            <!-- Cloud & DevOps -->
+            <a href="https://cloud.google.com" target="_blank" rel="noopener noreferrer" class="skill-card" data-category="cloud">
+              <div class="skill-icon-wrapper">
+                <svg class="skill-icon" viewBox="0 0 24 24"><path fill="#4285F4" d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96z"/></svg>
+              </div>
+              <div class="skill-info">
+                <span class="skill-name">Google Cloud</span>
+                <span class="skill-category-label">Cloud Infrastructure</span>
+              </div>
+            </a>
+
+            <a href="https://aws.amazon.com" target="_blank" rel="noopener noreferrer" class="skill-card" data-category="cloud">
+              <div class="skill-icon-wrapper">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg" alt="AWS logo" class="skill-icon">
+              </div>
+              <div class="skill-info">
+                <span class="skill-name">AWS</span>
+                <span class="skill-category-label">Cloud Platform</span>
+              </div>
+            </a>
+
+            <a href="https://www.docker.com" target="_blank" rel="noopener noreferrer" class="skill-card" data-category="cloud">
+              <div class="skill-icon-wrapper">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Docker_%28container_engine%29_logo.svg" alt="Docker logo" class="skill-icon">
+              </div>
+              <div class="skill-info">
+                <span class="skill-name">Docker</span>
+                <span class="skill-category-label">Containers</span>
+              </div>
+            </a>
+
+            <a href="https://kubernetes.io" target="_blank" rel="noopener noreferrer" class="skill-card" data-category="cloud">
+              <div class="skill-icon-wrapper">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/3/39/Kubernetes_logo_without_workmark.svg" alt="Kubernetes logo" class="skill-icon">
+              </div>
+              <div class="skill-info">
+                <span class="skill-name">Kubernetes</span>
+                <span class="skill-category-label">Orchestration</span>
+              </div>
+            </a>
+
+            <a href="https://www.jenkins.io" target="_blank" rel="noopener noreferrer" class="skill-card" data-category="cloud">
+              <div class="skill-icon-wrapper">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/e/e9/Jenkins_logo.svg" alt="Jenkins logo" class="skill-icon">
+              </div>
+              <div class="skill-info">
+                <span class="skill-name">Jenkins</span>
+                <span class="skill-category-label">CI / CD Automation</span>
+              </div>
+            </a>
+
+            <!-- Frameworks & APIs -->
+            <a href="https://fastapi.tiangolo.com" target="_blank" rel="noopener noreferrer" class="skill-card" data-category="frameworks">
+              <div class="skill-icon-wrapper">
+                <img src="https://fastapi.tiangolo.com/img/logo-margin/logo-teal.png" alt="FastAPI logo" class="skill-icon">
+              </div>
+              <div class="skill-info">
+                <span class="skill-name">FastAPI</span>
+                <span class="skill-category-label">High-Performance APIs</span>
+              </div>
+            </a>
+
+            <a href="https://www.djangoproject.com" target="_blank" rel="noopener noreferrer" class="skill-card" data-category="frameworks">
+              <div class="skill-icon-wrapper">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/7/75/Django_logo.svg" alt="Django logo" class="skill-icon">
+              </div>
+              <div class="skill-info">
+                <span class="skill-name">Django</span>
+                <span class="skill-category-label">Backend Web</span>
+              </div>
+            </a>
+
+            <a href="https://nodejs.org" target="_blank" rel="noopener noreferrer" class="skill-card" data-category="frameworks">
+              <div class="skill-icon-wrapper">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/d/d9/Node.js_logo.svg" alt="Node.js logo" class="skill-icon">
+              </div>
+              <div class="skill-info">
+                <span class="skill-name">Node.js</span>
+                <span class="skill-category-label">Server Runtime</span>
+              </div>
+            </a>
+
+            <a href="https://react.dev" target="_blank" rel="noopener noreferrer" class="skill-card" data-category="frameworks">
+              <div class="skill-icon-wrapper">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg" alt="React logo" class="skill-icon">
+              </div>
+              <div class="skill-info">
+                <span class="skill-name">React</span>
+                <span class="skill-category-label">UI Engineering</span>
+              </div>
+            </a>
+
+            <a href="https://vuejs.org" target="_blank" rel="noopener noreferrer" class="skill-card" data-category="frameworks">
+              <div class="skill-icon-wrapper">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/9/95/Vue.js_Logo_2.svg" alt="Vue.js logo" class="skill-icon">
+              </div>
+              <div class="skill-info">
+                <span class="skill-name">Vue.js</span>
+                <span class="skill-category-label">Reactive UI</span>
+              </div>
+            </a>
+
+            <!-- Systems & Robotics -->
+            <a href="https://www.ros.org" target="_blank" rel="noopener noreferrer" class="skill-card" data-category="systems">
+              <div class="skill-icon-wrapper">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/b/bb/Ros_logo.svg" alt="ROS logo" class="skill-icon" style="filter: invert(1);">
+              </div>
+              <div class="skill-info">
+                <span class="skill-name">ROS</span>
+                <span class="skill-category-label">Robot Operating System</span>
+              </div>
+            </a>
+
+            <a href="https://www.postgresql.org" target="_blank" rel="noopener noreferrer" class="skill-card" data-category="systems">
+              <div class="skill-icon-wrapper">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/2/29/Postgresql_elephant.svg" alt="PostgreSQL logo" class="skill-icon">
+              </div>
+              <div class="skill-info">
+                <span class="skill-name">PostgreSQL</span>
+                <span class="skill-category-label">Relational Database</span>
+              </div>
+            </a>
+
+            <a href="https://www.elastic.co" target="_blank" rel="noopener noreferrer" class="skill-card" data-category="systems">
+              <div class="skill-icon-wrapper">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/f/f4/Elasticsearch_logo.svg" alt="Elasticsearch logo" class="skill-icon">
+              </div>
+              <div class="skill-info">
+                <span class="skill-name">Elasticsearch</span>
+                <span class="skill-category-label">Search &amp; Analytics</span>
+              </div>
+            </a>
+
+            <a href="https://git-scm.com" target="_blank" rel="noopener noreferrer" class="skill-card" data-category="systems">
+              <div class="skill-icon-wrapper">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/e/e0/Git-logo.svg" alt="Git logo" class="skill-icon">
+              </div>
+              <div class="skill-info">
+                <span class="skill-name">Git</span>
+                <span class="skill-category-label">Version Control</span>
+              </div>
+            </a>
+
+            <a href="https://nginx.org" target="_blank" rel="noopener noreferrer" class="skill-card" data-category="systems">
+              <div class="skill-icon-wrapper">
+                <img src="https://www.nginx.com/wp-content/uploads/2020/05/NGINX-product-icon.svg" alt="Nginx logo" class="skill-icon">
+              </div>
+              <div class="skill-info">
+                <span class="skill-name">Nginx</span>
+                <span class="skill-category-label">Reverse Proxy</span>
+              </div>
+            </a>
+
+            <a href="https://www.linux.org" target="_blank" rel="noopener noreferrer" class="skill-card" data-category="systems">
+              <div class="skill-icon-wrapper">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/3/35/Tux.svg" alt="Linux Tux logo" class="skill-icon">
+              </div>
+              <div class="skill-info">
+                <span class="skill-name">Linux</span>
+                <span class="skill-category-label">Kernel &amp; Systems</span>
+              </div>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Education & Languages Section -->
+      <section id="education" class="section">
+        <div class="container">
+          <div class="two-col-grid">
+            <!-- Education Column -->
+            <div class="sub-card">
+              <div class="sub-card-header">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color: var(--accent-cyan);"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c3 3 9 3 12 0v-5"></path></svg>
+                <h3 class="sub-card-title">Education</h3>
+              </div>
+
+              <!-- ITAM -->
+              <div class="edu-entry">
+                <h4 class="edu-degree">Bachelor of Science in Mechatronics Engineering</h4>
+                <a href="https://www.itam.mx/en/1/pages/about-itam" target="_blank" rel="noopener noreferrer" class="edu-school">
+                  Instituto Tecnológico Autónomo de México (ITAM)
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                </a>
+                <div class="edu-meta">
+                  <span>Aug 2014 — Dec 2018</span>
+                  <span>•</span>
+                  <span>GPA: 87 / 100</span>
+                </div>
+              </div>
+
+              <div style="height: 1px; background: var(--border-subtle);"></div>
+
+              <!-- THI -->
+              <div class="edu-entry">
+                <h4 class="edu-degree">Computer Science (International Scholar)</h4>
+                <a href="https://www.thi.de/hochschule/ueber-uns/campus/" target="_blank" rel="noopener noreferrer" class="edu-school">
+                  Technische Hochschule Ingolstadt (THI)
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                </a>
+                <div class="edu-meta">
+                  <span>Oct 2017 — Oct 2018 (Germany)</span>
+                  <span>•</span>
+                  <span>GPA: 70 / 100</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Languages Column -->
+            <div id="languages" class="sub-card">
+              <div class="sub-card-header">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color: var(--accent-emerald);"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+                <h3 class="sub-card-title">Polyglot &amp; International</h3>
+              </div>
+
+              <div class="lang-list">
+                <!-- Spanish -->
+                <div class="lang-item">
+                  <div class="lang-identity">
+                    <span class="lang-flag" role="img" aria-label="Mexican Flag">🇲🇽</span>
+                    <div>
+                      <div class="lang-name">Spanish</div>
+                      <div style="font-size:0.78rem; color:var(--text-muted);">Native Proficiency</div>
+                    </div>
+                  </div>
+                  <span class="lang-level">Mother Tongue</span>
+                </div>
+
+                <!-- English -->
+                <div class="lang-item">
+                  <div class="lang-identity">
+                    <span class="lang-flag" role="img" aria-label="US Flag">🇺🇸</span>
+                    <div>
+                      <div class="lang-name">English</div>
+                      <div style="font-size:0.78rem; color:var(--text-muted);">Professional &amp; Technical Working</div>
+                    </div>
+                  </div>
+                  <span class="lang-level">Fluent C1</span>
+                </div>
+
+                <!-- German -->
+                <div class="lang-item">
+                  <div class="lang-identity">
+                    <span class="lang-flag" role="img" aria-label="German Flag">🇩🇪</span>
+                    <div>
+                      <div class="lang-name">German</div>
+                      <div style="font-size:0.78rem; color:var(--text-muted);">Academic &amp; Professional (Audi / THI)</div>
+                    </div>
+                  </div>
+                  <span class="lang-level">Fluent C1</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Interests, Reading & Awards -->
+      <section id="interests" class="section">
+        <div class="container">
+          <div class="interests-grid">
+            <!-- Reading & Philosophy -->
+            <div class="sub-card">
+              <div class="sub-card-header">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color: var(--accent-cyan);"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+                <h3 class="sub-card-title">Interests &amp; Reading</h3>
+              </div>
+              <p style="color:var(--text-secondary); font-size:0.95rem;">
+                Passionate about deep literature, machine learning theory, autonomous robotics, and visual storytelling.
+              </p>
+
+              <div class="quote-tabs">
+                <button class="quote-tab-btn active" data-target="quote-fountainhead">The Fountainhead</button>
+                <button class="quote-tab-btn" data-target="quote-expectations">Great Expectations</button>
+                <button class="quote-tab-btn" data-target="quote-ml">Machine Learning</button>
+              </div>
+
+              <div id="quote-fountainhead" class="quote-pane active">
+                <blockquote class="reading-quote">
+                  "The question isn't who is going to let me; it's who is going to stop me."
+                </blockquote>
+                <span class="quote-author">— Ayn Rand, <em>The Fountainhead</em></span>
+              </div>
+
+              <div id="quote-expectations" class="quote-pane">
+                <blockquote class="reading-quote">
+                  "Pause you who read this, and think for a moment of the long chain of iron or gold, of thorns or flowers, that would never have bound you, but for the formation of the first link on one memorable day."
+                </blockquote>
+                <span class="quote-author">— Charles Dickens, <em>Great Expectations</em></span>
+              </div>
+
+              <div id="quote-ml" class="quote-pane">
+                <blockquote class="reading-quote">
+                  "Exploring the frontier where statistical learning, generative neural architectures, and distributed systems converge to solve real-world problems."
+                </blockquote>
+                <span class="quote-author">— Machine Learning &amp; Robotics Research</span>
+              </div>
+            </div>
+
+            <!-- Awards & Certifications -->
+            <div id="awards" class="sub-card">
+              <div class="sub-card-header">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color: var(--accent-amber);"><circle cx="12" cy="8" r="7"></circle><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline></svg>
+                <h3 class="sub-card-title">Awards &amp; Certifications</h3>
+              </div>
+
+              <a href="https://www.hackerrank.com/certificates/843de18a2522" target="_blank" rel="noopener noreferrer" class="award-item">
+                <div class="award-icon-box">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                </div>
+                <div>
+                  <div class="award-title">HackerRank Problem Solving (Advanced)</div>
+                  <div style="color:var(--text-secondary); font-size:0.88rem; margin-bottom: 6px;">
+                    Verified advanced data structures, algorithmic graph theory, dynamic programming, and algorithmic design.
+                  </div>
+                  <span class="award-meta">
+                    Certificate ID: 843de18a2522 • View Verified Credential &rarr;
+                  </span>
+                </div>
+              </a>
+
+              <a href="https://unsplash.com/@zetinator" target="_blank" rel="noopener noreferrer" class="award-item">
+                <div class="award-icon-box" style="background: rgba(56, 189, 248, 0.12); color: var(--accent-cyan); border-color: rgba(56, 189, 248, 0.25);">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M7.5 6.75V0h9v6.75h-9zm9 3.75H24V24H0V10.5h7.5v6.75h9V10.5z"/></svg>
+                </div>
+                <div>
+                  <div class="award-title">Unsplash Photography Contributor</div>
+                  <div style="color:var(--text-secondary); font-size:0.88rem; margin-bottom: 6px;">
+                    Curated street, automotive, and architectural photography capturing urban geometries.
+                  </div>
+                  <span class="award-meta">
+                    @zetinator on Unsplash • View Photo Gallery &rarr;
+                  </span>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+      <div class="container footer-content">
+        <div class="footer-brand">
+          <div style="font-family:var(--font-sans); font-weight:700; font-size:1.05rem;">
+            Erick <span style="color:var(--accent-cyan);">Zetina</span>
+          </div>
+          <p class="footer-copy">
+            Designed &amp; engineered with reactive canvas physics. Content mirrored from <a href="https://zetinator.github.io/" target="_blank" rel="noopener noreferrer" style="color:var(--text-secondary);">zetinator.github.io</a>.
+          </p>
+        </div>
+
+        <div class="footer-links">
+          <a href="mailto:erickzetinator@gmail.com" class="footer-link">Email</a>
+          <a href="https://github.com/Zetinator" target="_blank" rel="noopener noreferrer" class="footer-link">GitHub</a>
+          <a href="https://www.linkedin.com/in/erick-zetina-b922a2173/" target="_blank" rel="noopener noreferrer" class="footer-link">LinkedIn</a>
+          <a href="https://drive.google.com/file/d/1YTu9EC7w_9p1FOtbUyepERHwyfnc7N9V/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="footer-link">Resume PDF</a>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Video Modal for Autonomous Car -->
+  <div id="video-modal" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="video-modal-title">
+    <div class="modal-container">
+      <div class="modal-header">
+        <h3 id="video-modal-title" class="modal-title">Autonomous Car Project in Action</h3>
+        <button id="close-video-modal" class="modal-close-btn" aria-label="Close modal">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div id="video-player-container" class="video-aspect-box">
+          <!-- Dynamic Iframe inserted by app.js on modal open -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Resume Preview Modal -->
+  <div id="resume-modal" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="resume-modal-title">
+    <div class="modal-container">
+      <div class="modal-header">
+        <h3 id="resume-modal-title" class="modal-title">Resume &amp; Curriculum Vitae</h3>
+        <button id="close-resume-modal" class="modal-close-btn" aria-label="Close resume modal">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+      </div>
+      <div class="modal-body" style="text-align: center; padding: 40px 24px;">
+        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color:var(--accent-cyan); margin-bottom:16px;"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+        <h4 style="font-size:1.3rem; margin-bottom:12px;">Erick Zetina's Resume</h4>
+        <p style="color:var(--text-secondary); max-width:480px; margin:0 auto 24px;">
+          The official resume is hosted on Google Drive in high-resolution PDF format.
+        </p>
+        <div style="display:flex; justify-content:center; gap:12px;">
+          <a href="https://drive.google.com/file/d/1YTu9EC7w_9p1FOtbUyepERHwyfnc7N9V/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+            Open in Google Drive
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Interactive Reactive Background Control Widget -->
+  <div class="bg-control-widget">
+    <div id="bg-controls-panel" class="bg-controls-panel collapsed">
+      <div class="bg-panel-header">
+        <span>Reactive Canvas</span>
+        <button id="bg-panel-close-btn" class="bg-panel-close" onclick="document.getElementById('bg-controls-panel').classList.add('collapsed')">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+      </div>
+
+      <div class="bg-select-group">
+        <label for="bg-mode-select" class="bg-select-label">Physics Mode</label>
+        <select id="bg-mode-select" class="bg-select">
+          <option value="constellation">Constellation Flow</option>
+          <option value="quantum">Quantum Orbit</option>
+        </select>
+      </div>
+
+      <div class="bg-select-group">
+        <label class="bg-select-label">Drift Speed</label>
+        <div class="bg-speed-btns">
+          <button class="bg-speed-btn" data-bg-speed="0.5">0.5x</button>
+          <button class="bg-speed-btn active" data-bg-speed="1.0">1.0x</button>
+          <button class="bg-speed-btn" data-bg-speed="1.8">1.8x</button>
+        </div>
+      </div>
+    </div>
+
+    <button id="bg-panel-toggle" class="bg-panel-toggle-pill" aria-label="Toggle reactive canvas controls" aria-expanded="false">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color:var(--accent-cyan);"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+      <span>Canvas FX</span>
+    </button>
+  </div>
+
+  <!-- Toast Notification -->
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <!-- Scripts -->
+  <script src="background.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
